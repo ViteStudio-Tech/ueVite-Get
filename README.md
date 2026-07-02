@@ -1,4 +1,4 @@
-<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/db17f8ed-806d-4dca-9af7-d1891220d6c0" />
+<img width="1536" height="400" alt="ViteStudioBanner" src="https://github.com/user-attachments/assets/f6f14728-f902-4267-bb58-e27b4b2bf9dd" />
 
 
 # UnrealEngineVite-Access
