@@ -50,8 +50,7 @@ https://github.com/GapingPixel/UnrealEngineVite-PhysX
 
 ========================================
 
-
-<img width="2550" height="1149" alt="image" src="https://i.postimg.cc/qMdLKLKN/Screenshot-2026-03-11-at-7-22-45-AM.png" />
+<img width="1993" height="1146" alt="image" src="https://github.com/user-attachments/assets/bfa1f4d2-2d8a-42f0-8b2c-13420bfe3a68" />
 
 
 UE-Vite Fork 
@@ -59,160 +58,185 @@ UE-Vite Fork
 
 ## ⚙️ Introduction
 
-Unreal Engine Vite is oriented toward professional game development, supporting titles currently in active production. The long-term focus of Vite is to maintain a continuously evolving, fully modern 9th-generation rendering engine with ongoing performance, stability, and graphics pipeline upgrades tailored for contemporary console hardware targets.
+**Unreal Engine Vite** is designed for professional game development and supports titles currently in active production. Its long-term focus is to maintain a continuously evolving, fully modern 9th gen engine, delivering industry-grade CPU and rendering throughput capable of competing with proprietary solutions, alongside ongoing performance, stability, and graphics-pipeline improvements tailored to contemporary console hardware targets.
 
-* **The aim for this Engine Fork is to offer one of the most performant publicly available Engine viable for commercial projects. Offering a base performance upgrade of up to 2.5x+ real game FPS vs ue5.7 intended feature set.**
+* **The aim for this Engine Fork is to offer the most performant publicly available engine viable for commercial projects. Offering a base performance upgrade of up to 2.5x+ real game FPS vs ue5.7 intended feature set.**
 
 * **On the features side, UE-Vite prioritizes battle-tested AAA technology over Epic’s UE5 in-house systems. This includes PhysX, DDGI, TressFX, SMAA, and other industry-standard solutions.**
 
-* Epic’s Unreal Engine 5.7/5.8 targets ~60 FPS at dynamic 720p–1080p resolution on PlayStation 5 when using systems such as Lumen, Nanite, and Chaos, as demonstrated in it's titles. Along with the high computational cost these rendering features rely heavily on temporal reconstruction and stochastic sampling, which introduce noise, temporal instability, and blurry image clarity. Outputting compromised fidelity on target hardware 
+* Epic’s UE 5.7/5.8 targets around 60 FPS at dynamic internal resolutions of 720p–1080p on PS5 using Lumen, Nanite, VSM, TSR, and Chaos, as demonstrated by shipped titles. Its virtualized approach geometry, shadowd, textures, and reconstructed resolution—adds processing, streaming, and memory overhead. Temporal reconstruction, denoising, and stochastic sampling introduce noise, ghosting, instability, and blur. Substrate, GPU Scene, RDG, heavier shader models, and feature expansion further increase base renderer overhead, shader permutations, bytecode, PSO counts, compilation time, and cache sizes versus UE4. Beyond Chaos, CPU costs include heavier scene maintenance, GPU Scene uploads, Lumen updates, Nanite streaming, VSM invalidation, World Partition, and render-thread/RHI workloads, compromising Visual clarity and gameplay responsiveness on the target hardware.
 
-Furthermore, with the recent release of the Nintendo Switch 2 and the rumored PS6 handheld, both expected to offer significantly less compute capability than the PlayStation 5, UE5 performance targets appear misaligned with the realities of current and upcoming console hardware. As a result, this rendering stack may be better suited to film production, virtual production pipelines, or high-end PC environments, rather than long-term console targets.
+Furthermore, with the recent release of the Nintendo Switch 2, the rise of handheld systems considerably less powerful than the PlayStation 5, Valve hardware such as the Steam Machine and Steam Deck, and increasing hardware costs driven by AI demand, UE5’s performance targets appear increasingly misaligned with current and upcoming console hardware. Consequently, this rendering stack may be better suited to film, virtual production, and high-end PC environments than to sustainable, long-term video game development across mass-market hardware.
 
 In contrast, Vite prioritizes high visual fidelity while maintaining strict frame-time budgets and high native resolutions across console-class hardware.
 
-**To make a showcase of Unreal Engine Vite's GPU renderer**, a scene running in Vite with RT GI, RT Reflections and Tesselattion is able to outperform the same scene on 5.7 without any RT, Lumen, Nanite or Tessellation ! These results remain true for RTX 4080S and RX 6700(PS5 Equivalent) GPUs.
+**To showcase Unreal Engine Vite’s GPU renderer**, a scene running in Vite with RT GI, RT Reflections, and Tessellation  outperforms the exact same scene on ue5.7 without any RT, Lumen, Nanite or Tessellation ! These results remain true at 4K Native for RTX 4080S and RDNA2 RX 6700(PS5 Equivalent); and Steam Deck Hardware at its native resolution.
 
 [![Vite RT GI + RT Reflections ](https://img.youtube.com/vi/2vfG3W-Gy5E/maxresdefault.jpg)](https://youtu.be/2vfG3W-Gy5E)
 
 
-**Stay in tune at our Discord:** https://discord.gg/hwUFKJMcU8
 
-**See our work plan on Trello:** https://trello.com/b/JKyBFS5X/ue-5-physx-vite-studio-fork
+## [Read the engine documentation](https://docs.vitestudiocom.net/)
 
-**Check Sample projects:** https://github.com/ViteStudio-Tech
+[**Stay tuned on our Engine Community Discord**](https://discord.gg/n9zQrYFhMb)
 
-**Engine Documentation:** https://docs.vitestudiocom.net/
+[**See our work plan on Trello**](https://trello.com/b/JKyBFS5X/ue-vite-physx-vite-studio-fork)
+
+[**Check out our sample projects**](https://github.com/ViteStudio-Tech)
+
+[**Check ueVite's public Drive**](https://drive.google.com/drive/folders/16FOkb5u6GSqHiWeAm50NaxZ19QFBwZeI?usp=sharing)
+
 
 If you’d like to be part of the forkers team, you can submit a PR or request the Forker role on the server. Our internal discussions include general resources about the Unreal Engine source.
 
 **Contribute to Vite Engine Dev:**  https://ko-fi.com/vitestudio
 
-**Receive Vite related media updates** from https://x.com/theredpix
+**Receive Vite-related media updates** from https://x.com/theredpix
 
-  ## ⚙️ Vite Performance Targets PS5 (All include Raytracing)
 
-| Target | Description |
+  ## ⚙️ Vite Performance Targets (All include Raytracing)
+
+| PS5 Class Target | Description |
 |------|-------------|
-| **Stylized: 4K 120 fps** | This target includes RT DDGI , as demonstrated in the Stylized Demo. This is intended for multiplayer titles. |
+| **Stylized: 4K 120 fps** | This target includes RT DDGI, as demonstrated in the Stylized Demo. This is intended for competitive multiplayer titles. |
 | **Performance High End: 4K 60fps** | Includes DDGI + RT Reflections + Tessellation as demonstrated in the Unreal Tournament Vite Demo. |
 | **Fidelity High End: 4K 30 FPS** | Similar to the previous target, but scaled for large open-world titles with high geometric density. |
-| **Full RT Effects: 1440p 30FPS** | In addition to RT GI(DDGI) and RT reflections, this target includes RTAO and RT Shadows. |
+| **Fidelity Full RT Effects: 1440p 30FPS** | In addition to RT GI(DDGI) and RT reflections, this target includes RTAO and RT Shadows. |
 
+
+
+| **Realtime PathTracing** | The Vite codebase includes NVIDIA's path-tracing technology featured in Black Myth: Wukong. 
 
   
 ## ⚙️ Tech Foundation
 
-This fork is originally based on NvRTX 4.27 Caustics, which introduced several DX12, ray tracing, and rendering improvements over Epic’s standard UE 4.27 branch. It also adds DLSS 3, NVIDIA Reflex, improved denoisers, and full support for ray tracing features including Engine side upgrades to DDGI such as imaginary Buffer for Reflection handling.
+This fork was originally based on NvRTX 4.27 Caustics, which introduced several DX12, ray-tracing, and rendering improvements over Epic’s standard UE 4.27 branch. It also adds DLSS, NVIDIA Reflex, improved denoisers, and comprehensive ray-tracing support, including Engine-Side DDGI upgrades such as DDGI-lit ray-traced reflections.
 
-The UE 4.27 Plus branch has been fully merged, along with significant portions of NvRTX 5.0. In addition, AMD rendering branches and features have been integrated, and over a 100 UE5 backports from versions 5.0 through 5.7 are included.
+The UE 4.27 Plus branch has been fully merged, alongside NVIDIA’s NvRTX 5.0 branch and rendering features from AMD’s engine branches. As of the June Major Release, Vite includes more than 250 backports from UE 5.0 through 5.7, with over 1,200 already integrated into the internal staging branches.
 
-Given that this engine is running PhysX, Tandem DDGI+SSGI. UE-Vite closely resembles the bespoke Unreal Engine build used in *The Finals* launch.
+This work is being done by engine programmers with extensive knowledge of Unreal Engine’s source and years of hands-on experience with its codebase, ensuring that these integrations use appropriate code guards, properly manage shader permutations, and manually adapt the cherry-picked UE5 backports to the Vite codebase.
+
+With PhysX and a combined DDGI+SSGI lighting pipeline, UE-Vite closely resembles the bespoke Unreal Engine build used for the launch of The Finals.
 
 
 Killer features of this Engine 
 ========================================
 
-* **Dynamic DDGI:** The star of this fork: An hyper-performant noise-free 9th gen Global Illumination alternative to Lumen. DDGI provides noise free image, higher quality bounce and less leaking than Software Lumen, it's comparable with HWRT Lumen for bounce. RTXGI outperforms Lumen for 2x~ the FPS. For a test scene: 811FPS (RTXGI) VS 324fps(Lumen 5.7). Runs great on AMD hardware (RX 6600 Test scene: 245FPS 1080p native). DDGI has been used across many AAA **console** titles such as Metro Exodus, Overwatch 2, The Finals, Control, The Witcher 3, Cyberpunk 2077,  DOOM: The Dark Ages, Indiana Jones and the Great Circle, Ghost of Yōtei, Star Wars: Outlaws(including Switch 2 ver) and AAA engines such as Anvil/Snowdrop use DDGI probes for part of their RT GI pipeline. *Works from GTX 1060 6GB gpus
+* **Dynamic DDGI:** The star of this fork: An hyper-performant noise-free 9th gen Global Illumination alternative to Lumen. DDGI provides higher quality bounces and less leaking than Software Lumen; it's comparable with HWRT Lumen for bounces. RTXGI usually outperforms Lumen for 2x~ the FPS on several test scenes. For a test scene: 811FPS (RTXGI) VS 324fps(Lumen 5.7). Runs great on AMD hardware (RX 6600 Test scene: 245FPS 1080p native). 
+
+DDGI implementations have been used across numerous AAA titles released on consoles, including Metro Exodus, Overwatch 2, The Finals, Control, The Witcher 3, Warhammer 40,000: Darktide, DOOM: The Dark Ages, Indiana Jones and the Great Circle, 007 First Light, Ghost of Yōtei, and Star Wars Outlaws, including its Switch 2 version. AAA engines such as Anvil and Snowdrop also use DDGI probes as part of their ray-traced GI pipelines. DDGI was designed to scale across a wide hardware range, beginning with GTX 1060 class GPUs.
 <img width="1800" height="1013" alt="image" src="https://github.com/user-attachments/assets/005c2527-3011-4048-8552-6e76e2204924" />
  **Image: 811fps on RTX 4080S 1440p Native DDGI Dynamic**
 <img width="1808" height="1010" alt="image" src="https://github.com/user-attachments/assets/a53249ff-868b-4656-8964-ca8f5d929e6d" />
  **Image: 324fps on **AMD** RX 6600 RDNA2 1080p Native RTXGI Dynamic**
 
-* **Static DDGI**: DDGI also includes a Static Mode with virtually instantaneous bake times. This mode delivers higher bounce fidelity than traditional baked-lighting solutions and general better coverage of moving objects, thanks to DDGI’s use of Spherical Harmonics to store and filter irradiance within the probe volumes. Viable for ultra-low-end GPUs without RT support.
+* **Static DDGI**: DDGI also includes a Static Mode with virtually instantaneous bake times. This mode delivers higher bounce fidelity than traditional baked-lighting solutions and generally better coverage of moving objects, thanks to DDGI’s use of Spherical Harmonics to store and filter irradiance within the probe volumes. Viable for ultra-low-end GPUs without RT support.
 
-* **Performant RT Reflections**: Vite has optimized to RT Reflections, these  are capable to run at 4K Native 60 FPS on PS5 Level GPU as demonstrated in the Unreal Tournament Vite Demo. 
+* **Performant RT Reflections**: Vite features highly optimized RT Reflections; these  are capable of running at 4K Native 60 FPS on PS5 Level GPU as demonstrated in the Unreal Tournament Vite Demo. 
 
-* **UE4 Era SSGI:** SSGI experienced both quality and performance regressions in UE5 due to its integration with Lumen, and it was no longer possible to be activated alongside DDGI. SSGI performs well alongside world-level GI solutions and is recommended to be used in tandem with DDGI to enhance coverage of high-frequency detail GI and improve overall lighting fidelity in complex scenes.
+* **UE4 Era SSGI:** SSGI experienced both quality and performance regressions in UE5 due to its integration with Lumen, and it was no longer possible to be activated alongside DDGI. SSGI performs well alongside world-level GI solutions and is recommended to be used in tandem with DDGI to enhance coverage of high-frequency detail GI.
 	
-* **PhysX:** PhysX 3 integration is fully stable and commercial-ready as this based of UE4. Vite’s PhysX3 libraries have been upgraded for newer Clang support(for significant compiler optimization).
+* **Vite PhysX:** PhysX 3 integration is fully stable and commercial-ready, as this based on UE4. Vite’s PhysX 3 libraries have been upgraded to support newer Clang versions, enabling significant compiler optimizations. PhysX Blast support has been added, and PhysX GPU-accelerated particles that can run across GPU vendors.
 	<img width="2559" height="719" alt="image" src="https://i.postimg.cc/bNzYVZS7/image-4.png" />
 	***Image: Chaos (5.7.3) 33.26fps VS PhysX (Vite) 157fps : ~4.74X end game FPS***
 	<img width="1105" height="615" alt="image" src="https://github.com/user-attachments/assets/7eb53084-98ce-4fac-a2f6-049c5487b9a1" />
 	***Image: PhysX running in fast-path by using Native PhysX Actors, about 2X faster than regular PhysX***
   
-* **RTXDI:** This is a **less noisy alternative to MegaLights**, it's the standalone version, not the Lumen-integrated RTXDI present in 5.1 and later NvRTX UE versions. Enabling RTXGI + RTXDI will still result in scenes with better performance than standalone Lumen (Hardware).
+* **RTXDI:** This is a **less noisy alternative to MegaLights**. It's the standalone version, not the Lumen-integrated RTXDI present in 5.1 and later NvRTX UE versions. Enabling RTXGI + RTXDI will still result in scenes with better performance than standalone Lumen (Hardware).
 	<img width="2350" height="1390" alt="image" src="https://github.com/user-attachments/assets/8978ec33-df26-4bbf-9f46-36feff4d1455" />
 
 * **Tesselation:** Enables higher geometric detail based on distance or displacement maps, enabling smoother surfaces, better silhouettes, and high-frequency detail at runtime without incurring the large overhead of Nanite. 
 
-* **Apex Destruction:** Destruction system of PhysX, a hyper performant alternative to Chaos Destruction https://www.nvidia.com/en-us/drivers/apex-destruction/
+* **Apex Destruction:** Destruction system of PhysX, a hyper-performant alternative to Chaos Destruction https://www.nvidia.com/en-us/drivers/apex-destruction/
 <img width="960" height="540" alt="image" src="https://github.com/user-attachments/assets/77792a48-e9f6-42c9-a89d-e3d3c3e39df8" />
 
-* **Apex Cloth:** APEX Clothing lets artists quickly generate characters with dynamic clothing to create an ultrarealistic interactive gaming experience https://www.nvidia.com/en-us/drivers/apex-clothing/
+* **Apex Cloth:** APEX Clothing lets artists quickly generate characters with dynamic clothing to create an ultra-realistic interactive gaming experience https://www.nvidia.com/en-us/drivers/apex-clothing/
 
-* **Full suite of RT Features:** RT Reflections, RTAO, RT Shadows, RT Skylight, RT Translucency, RT Caustics, RT Volumetrics, Per Pixel RT GI (apart from DDGI) and PathTracing [Black Myth: Wukong used this rendering Stack].
+* **Full suite of RT Features:** RT Reflections, RTAO, RT Shadows, RT Skylight, RT Translucency, RT Caustics, RT Direct Lighting, Per Pixel RT GI (apart from DDGI) and PathTracing [Black Myth: Wukong used this rendering Stack].
 
 
 Current Features
 ========================================
 
-* The **Release Branch** of this fork **currently brings the following**:
+* The **JuneMajorRelease branch** of this fork **currently brings the following**:
 
-	* **PhysX 3.4** libraries updated for compability with newer Clang versions and latest NDK Clang(Android). Resulting in meaninful performance increase (up to 2X in stress tests).  
-    * Integrated all ue4.27 Plus changes, nvrtx 4.27, nvrtx 5.0, DLSS3, TressFX and AMD patches
-    * Over 100 backports from ue5.0-5.7 
-    * Calisto BRDF (Single and Dual lobe GGX Specular, specular fresnel falloff)
-	* Toon Shading Model inspired in Guilty Gear 
-	* Full latest MSVC 14.50 (VS 2026) compiler compliance for the highest Compiler performance and compability.
- 	* Updated DLSS 3 support
-    * Editor QoL backports
-    * Added several ported/original/upgraded plugins bundled with the engine: FSR, Motion Matching, Houdini, ACL, Kawaii Physics, PhysX Instanced subsystem, Splash Damage Ability System 
-    * Several Rendering optimizations for RHI, RT Direct Lighting, RT shadows, Geometry Collection, Drawing, Eye adaptation, Shadow/Light Draw Distance, significantly sheaper SSAO, AMD Optimizations targeted for consoles 
-    * Several CPU optimizations for Containers, friends usage, Hashmaps, NavMesh, Volumetric clouds, Game Thread, TaskGraph, improved SIMD, Improved Animation systems performance, Texture handling, Streaming, Audio systems performance  
-    * Updated Classes for easier backporting of UE5 codebases (game framework/containers)
-    * Improved ACES (color reproduction)
-    * Shader Compilation Improvements
-    * Optimized runtimes for Skeletal Meshes and Actors
-    * Editor loading improvements
-	* Modernized console systems 
-    * Project Default Plugin debloat
-    * Improved Performance of RT Reflections
-    * Improved DDGI
-    * Compute Based SMAA
-	* Improved FXAA (Higher Image quality option)
-    * Updated TAA for better temporal resolve 
-	* Ported FSR2, FSR3, AMD AntiLag 2, DLSS 4.5
-	* TressFX integration 
-    * Localized IBL
-	* Oodle updates 
-	* GAS Updates 
-    * Extra optimization options to SSAO
-    * Several improvements/fixes for Android
-	* Large ammount of toolchain, C++ updates, faster cooking, and code modernization patches.
-	* Large ammount of Engine fixes,resolved memory leaks and stall fixes.
-	* BAT System to quickly produce Installed Engine Builds
-    * **Software Oclussion:** Noted as this was removed after 4.27
-    * Nintendo Switch Specialized Renderer (5.0+ removed this)
+	* **Vite PhysX 3.4** 
+      * **Lib Upgrade** for compability with newer *Clang* versions and latest NDK Clang(Android). Resulting in meaningful performance increase (up to 2X in stress tests, usually 1.4x faster in Box Container Pile 10 test).  
+      * **PhysX Blast** working alongside PhysX Apex Destruction
+      * **PhysX Fixed Timestep** Opt In Feature, fully guarded for Zero overhead on regular path
+  * Fully Merged ue4.27 Plus changes, nvrtx 4.27, nvrtx 5.0, DLSS, TressFX, FSR and AMD patches
+  * Over **250 backports** from ue5.0-5.7 
+  * **Calisto BRDF** (Single and Dual lobe GGX Specular, specular fresnel falloff)
+  * **Toon Shading Model** inspired in Guilty Gear 
+  * Up to MSVC 14.50 (VS26) compiler compliance for the highest Compiler performance and compatibility.
+  * Engine-side DLSS Rendering Improved Support
+  * Editor QoL backports
+  * Added several ported/original/upgraded plugins bundled with the engine: FSR, Motion Matching, Houdini, ACL, **Kawaii Physics**, **PhysX Instanced subsystem**, Splash Damage Ability System and others. 
+  * Several Rendering optimizations for RHI, RT Direct Lighting, RT shadows, Geometry Collection, Drawing, Eye adaptation, Shadow/Light Draw Distance, significantly sheaper SSAO, AMD Optimizations targeted for consoles 
+  * Several CPU optimizations for Containers, friends usage, Hashmaps, NavMesh, Volumetric clouds, Game Thread, TaskGraph, improved SIMD, Improved Animation systems performance, Texture handling, Streaming, Audio systems performance  
+  * Updated Classes for **easier backporting of UE5 codebases** (game framework/containers)
+  * Improved ACES (Color Reproduction)
+  * Shader Compilation Improvements
+  * Debloated **Runtime PSOs** at Shipping
+  * Optimized runtimes for Skeletal Meshes and Actors
+  * Editor loading improvements
+  * Modernized console systems 
+  * Project Default Plugin debloat
+  * Improved Performance of RT Reflections
+  * Improved DDGI
+  * **HBAO4+** Ambient Occlusion
+  * Compute Based **SMAA**
+  * Improved **FXAA** (Higher Image quality option)
+  * Updated **TAA** for better temporal resolve 
+  * Ported FSR2,FSR4 AMD AntiLag 2, DLSS 4.5
+  * **IMGUI** Integration with Benchmarking Tools
+  * **TressFX** integration 
+  * Localized IBL
+  * Oodle updates 
+  * GAS Updates 
+  * **SSAO** Fast Path
+  * Several **CPU Optimizations** to Animation Systems
+  * Several improvements/fixes for Mobile
+  * Large ammount of toolchain, C++ updates, faster cooking, and code modernization patches.
+  * Large ammount of Engine fixes, resolved memory leaks and stall fixes.
+  * BAT System to quickly produce Installed Engine Builds and Debloat.
+  * **Software Oclussion:** Noted as this was removed after 4.27
+  * Nintendo Switch Specialized Renderer Base (5.0+ removed this)
 <img width="813" height="1297" alt="image" src="https://github.com/user-attachments/assets/60a1991c-26ea-486e-980f-581d6fb00903" />
 
 
 ### Currently Work in Progress Features 
 
-	* Update UI Flat Design (UE5 like)
-	* Full C++ 20 support 
-	* Further integration of specific UE5 Upgrades 
-	* Rendering features (Improved Mesh/LOD handling, GI, Shader Models, AO, Improved Specular Aliasing Handling) 
-	* Further ACES Upgrades/Color Space/Tonemappers
-	* Large Level optimizations
-	* Further Shader compilation Improvements
+  * Update UI Flat Design (UE5-like)
+  * Full C++ 20 support 
+  * Further integration of specific UE5 Upgrades (Around 1000 backports pending to be in Release) 
+  * Rendering features (Improved Mesh handling, GI, Shader Models, AO, Improved Specular Aliasing Handling) 
+  * Further ACES Upgrades/Color Space/HDR Handling/Tonemappers
+  * Large Level optimizations
+  * Further Shader compilation Improvements
+  * CACAO
+  * PhysX Flex/Flow support: GPU-accelerated Particles for all GPUs, AMD Compute and NVIDIA CUDA paths 
+  * Tesselated Water, for Ocean Rendering integrated in the RT Scene for Reflections
+  * Improved performance of RTAO and RT Shadows
+  * Engine Level Integration for Multi-Threaded Tick Aggregation: Improved Instruction Coherency
+  * Core C++ lib upgrades
+  * Core Engine Math Upgrade
+  * Larger RT Rendering related changes
 	
 ### Future Features 
 
 	* AMD Single Pass Downsampler  https://github.com/GPUOpenSoftware/UnrealEngine/tree/FidelityFXSPD-4.26/UnrealEngine
-	* CACAO
 	* Improved SSGI
-	* Engine Level Integration for Multi-Threaded Tick Aggregation: Improved Instruction Coherency
-	* Flex/Flow support: CUDA GPU-accelerated Particles for PC/Nintendo targets
 	* Integration of a well-known ECS library
-	* Improved performance of RTAO and RT Shadows
-	* Waveworks
-	* IMGUI integration
+	
+
 
 
 ### Why use NvRTX 4.27 as a base?
 
-We are using NvRTX 4.27 as our base version because it represents the **best Unreal Engine iteration featuring an agnostic ray-tracing pipeline**, closer in design to that found in other AAA engines. Beginning with UE version 5.1, the rendering pipeline (particularly the ray-tracing path) became increasingly intertwined with Lumen, Nanite, Virtual Shadow Maps (VSM), and Temporal Super Resolution (TSR), reducing its modularity and flexibility. In addition, the already deprecated PhysX left over API began to be gradually removed.  
+We are using NvRTX 4.27 as our base version because it represents the **best Unreal Engine iteration featuring an Agnostic Ray-Tracing pipeline**, closer in design to that found in other AAA engines. 
+
+From UE version 5.1, the default rendering path—including its Ray Tracing Scene construction and update pipeline—became increasingly integrated around Lumen, Nanite, Virtual Shadow Maps (VSM), and Temporal Super Resolution (TSR). BLAS/TLAS management was adapted to support GPU Scene, Nanite fallback or streamed ray-tracing geometry, culling, and Lumen HWRT, while ray hits increasingly relied on Lumen’s separate Surface Cache and mesh-card representation for lighting. This greater coupling made alternative RTGI and reflection integrations less straightforward. In parallel, as PhysX was deprecated and replaced by Chaos, the remaining PhysX-specific APIs and compatibility code were gradually removed.
 
 **Important** Read this DOC: 4.27 VS 5.0  https://docs.google.com/document/d/1gA0MGkzeWWzKkgwBDOP5xRPouSKaOIW6xlPZ2q6BXO0/edit?usp=sharing
 
@@ -220,16 +244,17 @@ On top of this, this iteration of the engine also features the following non-tri
 
 * Materials/Shaders: 
 	Starting with Unreal Engine 5.1, Shader Model 6 (SM6) became the preferred rendering path. As a result, the **general shader instruction count increased significantly** for both SM5/SM6 paths. Subsequent engine versions have continued to expand both the instruction count and the number of shader permutations even further. In contrast, Unreal Engine 4.27 provides lighter-weight shaders that deliver the same visual fidelity, resulting in faster GPU performance across the board.
+  
 <img width="2518" height="1231" alt="ShaderInsCount" src="https://github.com/user-attachments/assets/5bf7e5c8-1342-4cb6-a1af-a96fed1ddab6" />
 
 * Physics System: 
-	Chaos is significantly slower than #PhysX in many workloads, largely due to less efficient #SIMD utilization, comparatively poor #multithreading and generally less efficient engineering decisions. Internal stress tests show Chaos performing over 5× slower than PhysX in heavily physics-bound scenarios. This performance difference affects not only rigid-body simulation, but also physics queries, collision calculations and transforms. Resulting in a measurable CPU overhead even in projects that make little or no use of physics simulation. The substantial performance advantage of PhysX also enables significantly more complex and larger-scale cloth simulation and destruction effects within the same CPU budget.
+	Chaos is significantly slower than #PhysX in many workloads, largely due to less efficient #SIMD utilization, comparatively poor #multithreading and generally less efficient engineering decisions. Internal stress tests show Chaos performing over 5× slower than PhysX in heavily physics-bound scenarios. This performance difference affects not only rigid-body simulation, but also physics queries, collision calculations and transforms. Resulting in a measurable CPU overhead even in projects that make little to no use of physics simulation. The substantial performance advantage of PhysX also enables significantly more complex and larger-scale cloth simulation and destruction effects within the same CPU budget.
 
 * Character Movement Component: 
 	 It has become increasingly expensive in newer versions of the engine. When compared to Unreal Engine 5.6, version 4.27 performs up to 2.2-2.8× faster in movement and collision calculations, even when not accounting for PhysX sweps speed improvement. This largely affects scenes with many enemies or players, decreasing the feasiblity of bigger scale simulation.
 
 * Ram/Vram Usage:
-	Overall memory usage has steadily increased with each engine iteration. In comparison, our Fork uses approximately 1GB of total less memory on average in a typical multiplayer map scene than version 5.7.
+	Overall memory usage has steadily increased with each engine iteration. In comparison, our Fork uses approximately 1GB of total less memory on average in a typical multiplayer map scene than version 5.7 (Stylized Demo).
 
 * UI System Slate/Widget:
 	Starting with UE5.0, Slate's rendering cost increased considerably, accompanied by a more complex system for handling Slate object updates, layout calculations,transformations and the rendering of it became more expensive in an attempt of increased UI rendering fidelity.
@@ -244,7 +269,7 @@ On top of this, this iteration of the engine also features the following non-tri
   	With the deeper integration UE5 Epic's features: Lumen/Nanite/VSM/Virtual Textures/TSR/Substrate/Chaos Cloth/Hair, the render thread became larger and more fragment, also PSOs have become increasingly heavier. Affecting the whole Renderer performance in any circumstance.
 
 * Removal of Blueprint Nativization
-  	Blueprint VM is a notoriously slow runtime. For simple gameplay logic, it is typically 50–80× slower than equivalent native C++ code, while algorithm-heavy workloads, such as bubble sort, node-heavy operations, or pathfinding, can be 170–400× slower. In Unreal Engine 4, this overhead was largely mitigated by Blueprint Nativization, which converted Blueprint bytecode into native C++ during packaging, producing code that was 	 typically around 10× faster than Blueprint VM execution. Given that most Unreal Engine projects rely heavily on Blueprints, especially through plugins and third-party code, this can make UE4 effectively many times faster in Game Thread execution for many real-world projects.
+  	Blueprint VM is a notoriously slow runtime. For simple gameplay logic, it is typically 50–80× slower than equivalent native C++ code, while algorithm code loads, such as bubble sort, node operations, or pathfinding, can be 150–400× slower. In Unreal Engine 4, this overhead was largely mitigated by Blueprint Nativization, which converted Blueprint bytecode into native C++ during packaging, producing code that was typically around 10× faster than Blueprint VM execution. Given that most Unreal Engine projects rely heavily on Blueprints, particularly through plugins and third-party code, this can make UE4’s Game Thread substantially faster in many real-world projects, reducing input latency, improving responsiveness and allowing for higher simulation scale.
 	
 * Volumetric effects, Fog and several other Engine Shaders
   	There is a large performance regression on the systems/materials that handle Volumetrics, Fog,Sky and many other default engine Shaders; increased shader complexity further beyond the base material cost increases
@@ -258,9 +283,9 @@ Sheet: https://docs.google.com/spreadsheets/d/1TabQV7UTDLMHI9GVFCbMzXohax2Agm2qz
 
 ### Isn't UE4 a deprecated codebase?
 
-This is a good question. In reality Unreal Engine 4 continues to power several recent AAA releases: **Stellar Blade (*UE4.26* 2024), Final Fantasy VII Rebirth (*UE4.26* 2024), Days Gone: Remastered (*UE4.11* 2025) Delta Force (*UE4.22* 2025), Mortal Kombat 1(*UE4.27* 2023), Mario & Luigi: Brothership (*UE4.26* 2024), Princess Peach: Showtime! (*UE4.26* 2024), Pikmin 4(*UE4.26* 2023) and the upcoming Final Fantasy VII Revelation:** All of these titles featuring **PhysX** of course. We understand that the reasoning behind these productions to remain on UE4 is due to specific features and to meet performance targets. The plan is to further upgrade the codebase, optimize core systems further, add new features, improve UI, and to modernize toolchains. UE4 is still being updated and supported by large studios and publicly updated via 4.27 Plus, also UE4 remains a priority for **Nintendo consoles**.
+This is a good question. In reality Unreal Engine 4 continues to power several recent AAA releases: **Final Fantasy VII Rebirth (*UE4.26* 2024)**, **Stellar Blade (*UE4.26* 2024), Days Gone: Remastered (*UE4.11* 2025) Delta Force (*UE4.22* 2026), Mortal Kombat 1(*UE4.27* 2023), Mario & Luigi: Brothership (*UE4.26* 2024), Princess Peach: Showtime! (*UE4.26* 2024), Pikmin 4(*UE4.26* 2023) and Square Enix's Dragon Quest VII Reimagined (**UE4.27** 2026), the upcoming Final Fantasy VII: Revelation(*UE4.27* 2027)** All of these titles feature **PhysX**, of course. We understand that these productions remain on UE4 to retain specific features and meet their Performance/Fidelity targets. The plan is to continue upgrading the codebase, further optimize core systems, upgrade Rendering Core, improve the UI, and modernize the toolchains. UE4 also continues to be updated and supported by major studios, with updates available through the 4.27-plus branch. Furthermore, UE4 remains a priority for Nintendo platforms.
 
-We know that performance targets can make or break a release, as they directly define a product's end feature set and the quality of the end user experience. For this, we have an all-around iterative optimization plan on this fork for every major feature.
+We know that performance targets can make or break a release, as they directly define a product's end feature set and the quality of the end user experience. For this, we have an all-around iterative optimization plan on this fork for every major feature that's introduced.
 
 Building the Engine on Windows
 ========================================
@@ -269,9 +294,10 @@ Building the Engine on Windows
   * If you have never built from source, follow: https://dev.epicgames.com/documentation/en-us/unreal-engine/setting-up-visual-studio-development-environment-for-cplusplus-projects-in-unreal-engine?application_version=4.27
   	<img width="1234" height="626" alt="image" src="https://github.com/user-attachments/assets/d7c83761-c713-48f3-b6eb-139ebd5d774a" />
 
-  * Latest VS26 works with MSVC 14.50/ Windows 11 SDK 10.0.22621.0
+  * Use Latest VS22 with MSVC 14.44 / Windows 11 SDK 10.0.26100.0 (Latest 4.27 Plus reported Epic's Compliance)
   * GitDeps is already fixed on this fork, no change needed.
   * Run Setup.bat first, when asked to Override Changes on Setup startup, enter N.
+  * Just before the linking phase begins, verify which toolchains are in use..
   * After the setup finishes downloading, run GenerateProjectFiles. 
 
 Compiling this version of Unreal Engine from source requires a specific set of build tools. If you use a newer or different version, you will encounter compilation errors like error C4668: '__has_feature' is not defined.
@@ -288,20 +314,21 @@ Follow these instructions carefully to set up the correct build environment:
  * Uncheck boxes for conflicting MSVC versions
  *Toolchain Options:
 	
-	-Maximum stability: VS 19 Latest: MSVC 14.29 paired with Windows SDK 10.0.19041.0
-	-Stable and High performance: VS 26 with MSVC 14.50 with Windows SDK 10.0.22621.0 (Tested by several Vite users during 6 months)
- * Epic's UE 4.27 Plus last toolchain update verified enough stability with VS 22 Latest: MSVC 14.44 with Windows SDK 10.0.26100
+	* Maximum stability: VS 19/22 Latest: MSVC 14.29 paired with Windows SDK 10.0.19041.0
+	
+    * Stable and High performance: VS 26 with MSVC 14.50 with Windows SDK 10.0.22621.0 (Tested by several Vite users during 6 months)
+    * Epic's UE 4.27 Plus last toolchain update verified enough stability with VS 22 Latest: MSVC 14.44 with Windows SDK 10.0.26100
     
-### Building with Visual Studio 2026
+### Building with Visual Studio
  
  * Set starting project as UE4 if not setup already.
  * Engine should be built in Development Editor configuration
 
-* If you encounter issues, match the following VS 26 Settings:
+* If you encounter issues, match the following VS Settings:
 <img width="344" height="1101" alt="image" src="https://github.com/user-attachments/assets/f88a1eda-8781-4b85-8d34-8b51864f81ae" />
 <img width="326" height="827" alt="image" src="https://github.com/user-attachments/assets/21a087a9-becf-45ec-af0e-8af900738c8c" />
 
-*Or Download Vite vs config (import the config file) https://drive.google.com/file/d/1jUURlZgtr8uQrMCOP5qLJ19KEBzqG_3w/view?usp=sharing
+Download and import the [Vite VSConfig](https://drive.google.com/file/d/1NwpPUiM_7yVI_kjhW94kYxvVP42ViV3Q/view?usp=sharing) file.
 
 
 ### Installed Build Automation
@@ -332,13 +359,13 @@ Notes for Projects
 
 Check the Vite GAS Sample project featuring DDGI:
 
-https://github.com/ViteStudio-Tech/ueVite-ThirdPersonGAS-Example
+https://github.com/ViteStudio-Tech/
 
 
 ***"I can't go back! I'm running a project on 5.1+"*** 
 ========================================
 
-No worries! You can use the UE Downgrader Plugin to fully downgrade assets from version 5.7 or lower back to our ueVite.
+No worries! You can use the UE Downgrader Plugin to fully downgrade assets from version 5.8 or lower back to ue4.27/ueVite.
 
 Downgrader: https://youtu.be/yXvJfDNfrSQ
 <img width="1280" height="720" alt="image" src="https://github.com/user-attachments/assets/7ac949c8-86dc-4484-a792-8232662f2a82" />
@@ -351,24 +378,24 @@ Downgrader: https://youtu.be/yXvJfDNfrSQ
 ***Engine Documentation*** 
 ========================================
 
-# DDGI  https://docs.google.com/document/d/1kdZGRV6bRNjNvec1OzzEJd64NtLBDZ8hzQvFVzB2GfI/edit?tab=t.0
+# [DDGI](https://docs.google.com/document/d/1kdZGRV6bRNjNvec1OzzEJd64NtLBDZ8hzQvFVzB2GfI/edit?tab=t.0)
 
-# Plugins https://docs.google.com/document/d/1Rf1FeHm5RxIkDsPij3Pq1Uu5q0U5GPJe0Za-lAJYTD8/edit?usp=sharing
+# [Plugins](https://docs.google.com/document/d/1Rf1FeHm5RxIkDsPij3Pq1Uu5q0U5GPJe0Za-lAJYTD8/edit?usp=sharing)
 
-# Vite Engine Debloat Documentation / Reference https://docs.google.com/document/d/1QKt7wYbLBl3Wo_OlIYwzWycES--glmhDFewghnd8ZUA/edit?usp=sharing
+# [Vite Engine Debloat Documentation / Reference](https://docs.google.com/document/d/1QKt7wYbLBl3Wo_OlIYwzWycES--glmhDFewghnd8ZUA/edit?usp=sharing)
 
-# Vite Engine Code Guidelines https://docs.google.com/document/d/1pCirc9CxqUUMcfYyv6ANgM9NG5LFsMruyE6W-4WbG8M/edit?usp=sharing
+# [Vite Engine Code Guidelines](https://docs.google.com/document/d/1pCirc9CxqUUMcfYyv6ANgM9NG5LFsMruyE6W-4WbG8M/edit?usp=sharing)
 
-# Backport Tracker: https://github.com/users/GapingPixel/projects/1/views/1
 
-**There are more READMEs on this repo, to access go to the specific public subfolder (ex: Plugins/Runtime/Nvidia/ RTXGI, RTXDI, Denoiser)**
+# **READMEs on this repo**
+To access go to the specific public subfolder (ex: Plugins/Runtime/Nvidia/ RTXGI, RTXDI, Denoiser)
 
-* **RTXGI:** https://github.com/GapingPixel/UE5-PhysX-Vite/tree/ue5Vite-release/Engine/Plugins/Runtime/Nvidia/RTXGI
+# [DDGI](https://github.com/GapingPixel/UE5-PhysX-Vite/tree/ue5Vite-release/Engine/Plugins/Runtime/Nvidia/RTXGI)
 
-* **DLSS:** https://github.com/GapingPixel/UE5-PhysX-Vite/tree/ue5Vite-release/Engine/Plugins/Runtime/Nvidia/DLSS
+# [DLSS](https://github.com/GapingPixel/UE5-PhysX-Vite/tree/ue5Vite-release/Engine/Plugins/Runtime/Nvidia/DLSS)
 
-* **PhysX Clang Upgrade:** [https://github.com/GapingPixel/UE5-PhysX-Vite/tree/ue5Vite-release/Engine/Plugins/Runtime/Nvidia/DLSS](https://github.com/GapingPixel/UnrealEngineVite-PhysX/commit/797fcfb765922bf0e7f82be6c7c09e049b1427b0)
-  
+# [PhysX Clang Upgrade](https://github.com/GapingPixel/UnrealEngineVite-PhysX/blob/ueVite26-MarchMajorRelease/Engine/Source/ThirdParty/PhysX3/README_build_android.md)
+
 
 Tech-Demos
 ========================================
@@ -377,7 +404,7 @@ Check our Announcements Channel to download playable demos: https://discord.gg/x
 
 
 Unreal Tournament Vite Demo (RT GI + RT Reflections):
-https://t.co/I1pPmEtEvd
+https://drive.usercontent.google.com/download?id=1GRHXf20t_Mu0pS78yHG-vDoAlE_HPfKE&export=download&authuser=0
 
 
 Stylized RT GI Demo(DDGI): Latest UE5-Vite
@@ -400,8 +427,8 @@ https://shorturl.at/NnvgE
 We are looking for Testers with the following hardware:  Check Discord: ⁠🎥⏐showcase 
 
 * **AMD:**  RDNA2 6600-**6700**(this matches PS5) / Integrated RDNA2-3.5 / **Steam Deck**(Rog Ally or other handheld)
-* **Nvidia:** GTX 1050/GTX 1630/GTX 1650 and **GTX 1060**/GTX 1660(any GTX 1XXX with 6GB or more)/ RTX 2050/3050 - MX550/MX570(integrated Turing/Ampere)
-
+* **Nvidia:** GTX 1650 and **GTX 1060**/GTX 1660(any GTX 1XXX with 6GB or more)/ RTX 2050/3050 - MX550/MX570(integrated Turing/Ampere)
+* Tests are ideal on 4K Native Monitor/TV
 ------------------------------------------------------------------------------------------------
 
  
@@ -788,4 +815,6 @@ To enable this cinematic RT DOF, you should take the following steps:
 4. r.RayTracing.PrimaryRays.IncludeDOF 1
 
 5. Dlss is automatically supported
+
+
 
