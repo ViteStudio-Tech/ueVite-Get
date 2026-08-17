@@ -75,7 +75,8 @@ Furthermore, the recent release of the **Nintendo Switch 2**, the rise of handhe
 
 In contrast to UE5, Vite’s mission is to deliver the highest Visual Fidelity relative to computational cost, maintaining strict frame-time budgets and high native resolutions while running Ray-Tracing on console-class hardware.
 
-**To showcase Unreal Engine Vite's Renderer**, a scene running in Vite with RT GI, RT Reflections, and Tessellation outperforms the exact same scene on UE5.7 without any RT, Lumen, Nanite, or Tessellation! These results remain true at 4K Native for RTX 4080S and RDNA2 RX 6700(PS5 Equivalent) and Steam Deck Hardware at its native resolution.
+**To showcase Unreal Engine Vite's Renderer**, a scene running in Vite with RT GI, RT Reflections, and Tessellation outperforms the exact same scene on UE5.7 without any RT, Lumen, Nanite, or Tessellation! These results remain true at 4K Native for RTX 4080S, RDNA2 RX 6700(PS5 Equivalent) and Steam Deck Hardware at its native resolution. 
+Demonstration in video/demos:
 
 [![Vite RT GI + RT Reflections + Tessellation ](https://img.youtube.com/vi/2vfG3W-Gy5E/maxresdefault.jpg)](https://youtu.be/2vfG3W-Gy5E)
 
@@ -140,7 +141,7 @@ DDGI implementations have been used across numerous AAA titles released on conso
 <img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/a53249ff-868b-4656-8964-ca8f5d929e6d" />
  **Image: 324fps on **AMD** RX 6600 RDNA2 1080p Native RTXGI Dynamic**
 
-* **Static DDGI**: DDGI also includes a Static Mode with virtually instantaneous bake times. This mode delivers higher bounce fidelity than traditional baked-lighting solutions and generally better coverage of moving objects, thanks to DDGI’s use of Spherical Harmonics to store and filter irradiance within the probe volumes. Viable for ultra-low-end GPUs without RT support.
+* **Static DDGI**: DDGI also includes a Static Mode with virtually instantaneous bake times. It can deliver higher overall indirect-bounce fidelity and better lighting coverage for movable objects compared to traditional bakes, at the same time it can also be used with Lightmass in conjunction. Static DDGI can provide better directional and visibility-aware volumetric lighting than VLM, particularly for movable objects. During authoring, RTXGI performs actual ray-traced traversal of the scene geometry to populate its probes. The resulting directional irradiance and visibility data are stored as mapped probe textures and serialized before the final game build. Static DDGI can then reproduce this lighting at runtime without performing additional ray tracing. This makes Static DDGI viable on low-end GPUs without hardware RT support, with testing performed on hardware as low as the GCN4 RX 570.
 
 * **Performant RT Reflections**: Vite features highly optimized RT Reflections; these are capable of running at 4K Native 60 FPS on PS5-level GPU as demonstrated in the Unreal Tournament Vite Demo. 
 
@@ -1171,5 +1172,6 @@ To enable this cinematic RT DOF, you should take the following steps:
 4. r.RayTracing.PrimaryRays.IncludeDOF 1
 
 5. Dlss is automatically supported
+
 
 
