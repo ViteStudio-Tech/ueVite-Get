@@ -42,7 +42,7 @@ https://github.com/GapingPixel/UnrealEngineVite-PhysX
 
 ## Disclaimer
 
-**UnrealEngineVite** is developed by **ViteStudio-Tech** in collaboration with independent developers, studios, and engine programmers. It is **not sponsored by, or affiliated with Epic Games, Inc.**
+**UnrealEngineVite** is developed by **ViteStudio-Tech** in collaboration with independent developers. It is **not sponsored by, or affiliated with Epic Games, Inc.**
 
 **Epic**, **Epic Games**, **Unreal**, **Unreal Engine**, and their respective logos are trademarks or registered trademarks of **Epic Games, Inc.** in the United States and other countries.
 
