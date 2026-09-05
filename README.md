@@ -1,59 +1,8 @@
-<img width="1536" height="400" alt="ViteStudioBanner" src="https://github.com/user-attachments/assets/f6f14728-f902-4267-bb58-e27b4b2bf9dd" />
-
-
-# UnrealEngineVite-Access
-Repository Access Instructions for UnrealEngineVite-PhysX
-
-# Accessing the UnrealEngineVite Repository
-
-To access the **UnrealEngineVite** repository, you must first have a free **Epic Games** account linked to your **GitHub** account.
-
-## Step 1 – Create an Epic Games Account
-
-If you don't already have one, create a free account at:
-
-**https://www.unrealengine.com/**
-
-## Step 2 – Link Your GitHub Account
-
-Follow Epic Games' official instructions to connect your GitHub account:
-
-**https://www.unrealengine.com/en-US/ue-on-github**
-
-> **Important:** Use the GitHub account that you want to access the Vite repository with.
-
-## Step 3 – Accept the GitHub Invitation
-
-After linking your accounts, Epic Games will send you an invitation to join the **EpicGames** GitHub organization.
-
-You **must accept this invitation** before you can access Unreal Engine source repositories.
-
-## Step 4 – Access to Vite
-
-After your request has been approved, you'll be able to access the repository here:
-
-https://github.com/GapingPixel/UnrealEngineVite-PhysX
-
-**UnrealEngineVite Repository**
-
-> **Note:** You must be signed in to GitHub using the linked account for the repository link to work.
-
----
-
-## Disclaimer
-
-**UnrealEngineVite** is developed by **ViteStudio-Tech** in collaboration with independent developers. It is **not sponsored by, or affiliated with Epic Games, Inc.**
-
-**Epic**, **Epic Games**, **Unreal**, **Unreal Engine**, and their respective logos are trademarks or registered trademarks of **Epic Games, Inc.** in the United States and other countries.
-
-
-
-=============
-
 <img width="2559" height="1264" alt="image" src="https://github.com/user-attachments/assets/d441276f-dcb5-4029-b501-ac59f05c3258" />
 
 
-[![Community](https://img.shields.io/badge/Community-Discord-5865F2?logo=discord&logoColor=white)](https://discord.gg/MKWsMg2eG) [![Docs](https://img.shields.io/badge/Documentation-Vite-2088FF?logo=readthedocs&logoColor=white)](https://docs.vitestudiocom.net/) [![Samples](https://img.shields.io/badge/Sample%20Projects-Explore-2EA44F?logo=github&logoColor=white)](https://github.com/ViteStudio-Tech)[![Support Vite](https://img.shields.io/badge/Support-Ko--fi-FF5E5B?logo=kofi&logoColor=white)](https://ko-fi.com/vitestudio) [![YT](https://img.shields.io/badge/YouTube-Unreal%20Engine%20Vite-FF0000?logo=youtube&logoColor=white)](https://www.youtube.com/@UnrealEngineVite) [![Updates](https://img.shields.io/badge/Updates-@theredpix-000000?logo=x&logoColor=white)](https://x.com/theredpix)
+<a href="https://discord.gg/n9zQrYFhMb"><img src="https://img.shields.io/discord/1134317404902662146?logo=discord&label=Community&color=5865F2&logoColor=white" alt="Community"></a>
+ [![Docs](https://img.shields.io/badge/Documentation-Vite-2088FF?logo=readthedocs&logoColor=white)](https://docs.vitestudiocom.net/) [![Samples](https://img.shields.io/badge/Sample%20Projects-Explore-2EA44F?logo=github&logoColor=white)](https://github.com/ViteStudio-Tech)[![Support Vite](https://img.shields.io/badge/Support-Ko--fi-FF5E5B?logo=kofi&logoColor=white)](https://ko-fi.com/vitestudio) [![YT](https://img.shields.io/badge/YouTube-Unreal%20Engine%20Vite-FF0000?logo=youtube&logoColor=white)](https://www.youtube.com/@UnrealEngineVite) [![Updates](https://img.shields.io/badge/Updates-@theredpix-000000?logo=x&logoColor=white)](https://x.com/theredpix)
 
 <small><em>For serious inquiries, contact <a href="mailto:vila@vitestudiocom.net">vila@vitestudiocom.net</a></em></small>
 
@@ -471,6 +420,15 @@ We know that performance targets can make or break a release, as they directly d
 Building the Engine on Windows
 ========================================
 
+## Clone the repository 
+
+<img width="347" height="309" alt="image" src="https://github.com/user-attachments/assets/bf189d4b-b104-4f4d-ab55-aa5c21148200" />
+
+
+Clone the repository using GitHub Desktop, Fork, or another visual Git client. Using a visual client is recommended over the command line.
+**Do not** make a shallow clone, as this **will cause problems** when receiving updates.
+**Do not** download the repository as a ZIP file.
+
 ## Prerequisites
 
 Download [Visual Studio 2022 Community](https://aka.ms/vs/17/release/vs_community.exe).
@@ -492,25 +450,109 @@ Download and import the appropriate Visual Studio configuration:
 
 Use one of the following configurations:
 
-- Visual Studio 2026 with MSVC 14.50
+- Visual Studio 2026 with MSVC 14.51
 - Visual Studio 2022 with MSVC 14.44
 * Windows 11 SDK 10.0.26100 used for both
+* MSBuild, enabled from the Individual components tab under Code tools. The C++ workload presets do not always include it.
+* You might need to install VS22 even when attempting to use VS26.
 
-> If you are getting an NTDDI issue, it means that the Visual Studio Installation is dated and needs to reinstall the SDK 10.0.26100 fully. (delete from *C:\Program Files (x86)\Windows Kits\10* and from VS Components, reinstall again after) -Subversion difference
+> If MSBuild is missing, `GenerateProjectFiles.bat` fails with "Unable to find a valid installation of Visual Studio". `InstalledBuildVite.bat` checks for it up front and tells you which component to install.
+
+> If you are getting an NTDDI issue, it means that the Visual Studio Installation is outdated and needs to reinstall SDK 10.0.26100 fully. (delete from *C:\Program Files (x86)\Windows Kits\10* and from VS Components, reinstall again after) -Subversion difference
 
 ### Setup procedure
 
-1. Run `Setup.bat`.
-2. Wait for the setup process to finish downloading all required dependencies.
-3. Run `GenerateProjectFiles.bat`.
-4. Open the generated solution (`.sln`) in Visual Studio.
-5. In Solution Explorer, right-click the `UE4` project and select **Set as Startup Project**.
-6. Select the **Development Editor** build configuration. (May need to modify BuildConfiguration.xml)
-7. Build the `UE4` project.
+`ViteSetup.bat` is the only script you need. It runs the environment and toolchain checks, the dependency sync, project generation, the build, the strip-down pass, engine registration, and the desktop shortcut.
+
+**Build from source.** A source build is the supported configuration: you can debug into engine code, apply fork patches, and rebuild after every pull. A precompiled binary can do none of that, and we cannot support bug reports made against one.
+
+1. Run `ViteSetup.bat`.
+2. Choose a path:
+   - **Source build - Express** (recommended). Win64 only unless you tick more platforms. Keeps the Third Person template (C++ and Blueprint) and the ACL and MotionSymphony Vite plugins; removes Starter Content, the NVIDIA sample projects, `.pdb` debug symbols, every non-Win64 platform binary, and every other Vite plugin. Offers a further strip pass at the end.
+   - **Source build - Custom.** Same build, but you choose the platforms, the optional content, and the strip items yourself.
+   - **Precompiled binary build.** Not recommended, see above.
+3. Pick the target platforms. Win64 is always downloaded; anything left unticked is never downloaded, which is where most of the space is saved. A full sync is about 35.8 GB on disk against about 13.2 GB for Win64 alone.
+4. Check the estimated size, then confirm to start.
+
+Nothing that the strip pass removes is deleted. It is moved to `ViteDebloat_Moved` next to the engine folder, so any of it can be restored by copying it back.
+
+For reference, a full Windows-only source tree measures around 137 GB once built, before any strip pass.
+
+The assistant does all of this for you. To build by hand instead:
+
+1. Run `GenerateProjectFiles.bat`.
+2. Open the generated solution (`.sln`) in Visual Studio.
+3. In Solution Explorer, right-click the `UE4` project and select **Set as Startup Project**.
+4. Select the **Development Editor** build configuration. (May need to modify BuildConfiguration.xml)
+5. Build the `UE4` project.
+
+> `ViteSetup.bat --sync-only` skips every prompt and behaves like the original `Setup.bat`, syncing dependencies with whatever `-exclude=` arguments you pass. `--vite-noninteractive` is kept as an alias for scripts written against the older two-file layout.
+
+### Advanced menu
+
+`ViteSetup.bat menu` opens the individual steps instead of the guided flow:
+
+| | |
+|---|---|
+| `[1]` | Check the environment and toolchain |
+| `[2]` | Set up dependencies (assistant or a named preset) |
+| `[3]` | Generate Visual Studio files |
+| `[4]` | Build Unreal Engine source |
+| `[5]` | Set up dependencies, then generate Visual Studio files |
+| `[6]` | Open `UE4.sln` |
+| `[7]` | Show setup profiles and the `GitDependencies` command each one runs |
+| `[8]` | Build precompiled binary (not recommended) |
+| `[9]` | Strip the engine down (picker) |
+
+Command line:
+
+```bash
+ViteSetup.bat --sync-only -exclude=Mac -exclude=Android
+```
+
+> `InstalledBuildVite.bat` no longer exists. Everything it did is in `ViteSetup.bat`. **Delete any copy left over from an older checkout** &mdash; it carries the Visual Studio detection bug this script replaced, and running it on a machine with only VS 2026 reports that no toolchain is installed.
+
+## devops scripts
+
+`ViteSetup.bat` calls most of these for you. Run them directly when you want one step on its own, or want to undo one. They all expect `devops\` to sit in the engine root, next to `ViteSetup.bat`.
+
+### Engine stripping
+
+[`devops/config.txt`](devops/config.txt) drives the whole strip suite and is the file to edit. `MODE=move` relocates targets into `MOVE_DIR` (default `..\ViteDebloat_Moved`) so they can be restored; `MODE=delete` is permanent. `DRYRUN=1` reports every action without touching a file &mdash; leave it on until you have read a dry run. Comment a `STRIP=` line out to keep that target.
+
+| Script | What it does |
+|---|---|
+| [`ueVite-debloat-StripExecute.bat`](devops/ueVite-debloat-StripExecute.bat) | The main strip pass. Processes every `STRIP=` entry, prunes `Templates\` down to the `KEEP_TEMPLATE=` list, and optionally the plugins named in `ExcludedPlugins.txt`. Takes an alternate config file as its first argument. |
+| [`ueVite-debloat-StripDebugSymbols.bat`](devops/ueVite-debloat-StripDebugSymbols.bat) | Removes `.pdb` debug symbols. Split out because it is the one strip you are most likely to want to reverse. |
+| [`ueVite-debloat-ValidateRefs.ps1`](devops/ueVite-debloat-ValidateRefs.ps1) | Checks the stripped tree for dangling module references, so you learn the engine will not build *before* you try. `StripExecute` runs it automatically on a real move-mode run — that is, `MODE=move`, `DRYRUN=0` and `VALIDATE_REFERENCES=1`. |
+| [`ueVite-debloat-SetupSlim.bat`](devops/ueVite-debloat-SetupSlim.bat) | Runs the dependency sync Win64-only, using the `KEEP_PLATFORM=` lines in `config.txt` instead of the interactive picker. |
+
+**To undo a strip** that ran in `move` mode:
+
+```bash
+powershell -NoProfile -ExecutionPolicy Bypass -File devops/ueVite-debloat-ValidateRefs.ps1 -Restore
+```
+
+`-Restore` moves back only the modules that something still references; `-RestoreAll` moves back everything.
+
+### Plugin and gameplay defaults
+
+| Script | What it does |
+|---|---|
+| [`ueVite-ApplyVitePluginDefaults.bat`](devops/ueVite-ApplyVitePluginDefaults.bat) | Flips the engine plugins listed in [`ViteEnginePluginDefaults.txt`](devops/ViteEnginePluginDefaults.txt) between the Vite defaults and the stock UE 4.27 defaults. The source tree ships stock values for compatibility, so run this to get the Vite set. Flags: `--vite` (default), `--stock`, `--dryrun`, `--yes`. |
+| [`ViteDefaults.bat`](ViteDefaults.bat) | Menu for the gameplay defaults that differ from stock 4.27: `SkeletalMeshComponent` tick and update-rate settings, and whether actors generate overlap events by default. Edits engine source, so rebuild the editor afterwards. Wraps [`devops/ViteDefaults.ps1`](devops/ViteDefaults.ps1). |
+
+### Reporting
+
+| Script | What it does |
+|---|---|
+| [`ViteVsDetect.ps1`](devops/ViteVsDetect.ps1) | Lists every Visual Studio install and every usable MSVC x64 toolset, via `vswhere.exe`. `ViteSetup.bat` relies on it for toolchain detection. Run it directly with `-ResultPath <file>` when a toolchain is not being detected and you want to see the raw result. |
+| [`ViteSpaceReport.ps1`](devops/ViteSpaceReport.ps1) | `-Mode Estimate` predicts download and on-disk size for a given `-Exclude` list from the dependency manifest; `-Mode Measure -Path <dir>` measures what is actually on disk. This is where the size figures in the assistant come from. |
+
 
 ### Installing .NET Framework 4.5
 
-If .NET Framework 4.5 is missing, run `ViteSetup.bat`. It will install the required framework automatically.
+If .NET Framework 4.5 is missing, run `InstalledBuildVite.bat`. It will install the required framework automatically.
 
 Close the script immediately after the .NET Framework installation finishes.
 
@@ -522,14 +564,14 @@ Update your `BuildConfiguration.xml` file with the following configuration:
 <?xml version="1.0" encoding="utf-8"?>
 <Configuration xmlns="https://www.unrealengine.com/BuildConfiguration">
     <WindowsPlatform>
-        <!-- Recommended Vite toolchain, battle-tested with MSVC 14.50 for more than 7 months across several users. -->
-        <CompilerVersion>14.50</CompilerVersion>
+        <!-- Recommended Vite toolchain, MSVC 14.51 -->
+        <CompilerVersion>14.51</CompilerVersion>
 
         <!-- Visual Studio 2022 option: latest toolchain compliant with Epic's UE 4.27 Plus branch. -->
         <!--<CompilerVersion>14.44</CompilerVersion>-->
 
         <!-- Original UE 4.27 toolchain:
-             Visual Studio 2019, Windows 10 SDK 10.0.18362, and Clang 11.0.0. -->
+             Visual Studio 2017/2019, Windows 10 SDK 10.0.18362/10.0.19041, and Clang 11.0.0. -->
         <!--<CompilerVersion>14.29</CompilerVersion>-->
 
         <!-- Optional Windows SDK overrides. -->
